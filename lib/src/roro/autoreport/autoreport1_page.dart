@@ -1,7 +1,6 @@
 import 'package:consumar_app/utils/qr_scanner/barcode_scanner_window.dart';
 import 'package:flutter/material.dart';
 
-//import 'package:dropdown_search/dropdown_search.dart';
 import '../../../models/roro/rampa_embarque/vw_rampa_embarque_vehicle_data_model.dart';
 import '../../../models/vehicle_model.dart';
 import '../../../models/vw_ship_and_travel_by_id_service_order_model.dart';
@@ -45,6 +44,7 @@ class _Autoreport1State extends State<Autoreport1> {
   final TextEditingController _marcaController = TextEditingController();
   final TextEditingController _bLController = TextEditingController();
   final TextEditingController codigoQrController = TextEditingController();
+  final TextEditingController _filaController = TextEditingController();
 
   final TextEditingController chasisBusquedaController =
       TextEditingController();
@@ -503,7 +503,6 @@ class _Autoreport1State extends State<Autoreport1> {
                     }
                     return null;
                   }),
-
               Visibility(
                   visible: isVisibleOtrosZona,
                   child: Column(
@@ -528,8 +527,42 @@ class _Autoreport1State extends State<Autoreport1> {
                 height: 20,
               ),
               //COMBO DESPLEGABLE DE FILA
-              DropdownButtonFormField(
-                  decoration: InputDecoration(
+                /*
+                DropdownButtonFormField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      labelText: 'Fila',
+                      labelStyle: TextStyle(
+                        color: kColorAzul,
+                        fontSize: 20.0,
+                      ),
+                    ),
+                    icon: const Icon(
+                      Icons.arrow_drop_down_circle_outlined,
+                    ),
+                    items: fila.map((String a) {
+                      return DropdownMenuItem<String>(
+                        value: a,
+                        child: Center(child: Text(a, textAlign: TextAlign.left)),
+                      );
+                    }).toList(),
+                    onChanged: (value) => {
+                          setState(() {
+                            _valueFilaDropdown = value as String;
+                          })
+                        },
+                    hint: Text(_valueFilaDropdown),
+                    validator: (value) {
+                      if (value == null) {
+                        return 'Por favor, Ingrese fila';
+                      }
+                      return null;
+                    }),
+              */
+              TextFormField(
+                decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20.0),
                     ),
@@ -538,28 +571,17 @@ class _Autoreport1State extends State<Autoreport1> {
                       color: kColorAzul,
                       fontSize: 20.0,
                     ),
-                  ),
-                  icon: const Icon(
-                    Icons.arrow_drop_down_circle_outlined,
-                  ),
-                  items: fila.map((String a) {
-                    return DropdownMenuItem<String>(
-                      value: a,
-                      child: Center(child: Text(a, textAlign: TextAlign.left)),
-                    );
-                  }).toList(),
-                  onChanged: (value) => {
-                        setState(() {
-                          _valueFilaDropdown = value as String;
-                        })
-                      },
-                  hint: Text(_valueFilaDropdown),
-                  validator: (value) {
-                    if (value == null) {
-                      return 'Por favor, Ingrese fila';
-                    }
-                    return null;
-                  }),
+                    hintText: 'Ingrese la Fila',),
+
+                controller: _filaController,
+                enabled: true,
+                onChanged: (value) => {
+                  setState(() {
+                    _valueFilaDropdown = value as String;
+                  })
+                },
+              ),
+
               const SizedBox(
                 height: 40,
               ),

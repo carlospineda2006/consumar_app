@@ -64,6 +64,7 @@ final List<Zone> _zone = [
   Zone(zona: "Right"),
   Zone(zona: "Left"),
   Zone(zona: "Edge"),
+  Zone(zona: "All the unit"),
 ];
 
 class _DamageReportState extends State<DamageReport>

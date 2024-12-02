@@ -24,7 +24,10 @@ class MenuPrincipal extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: const Text("CONSUMARPORT"),
+          title: const Text(
+            "CONSUMARPORT",
+            style: TextStyle(color: Colors.white),
+          ),
         ),
         drawer: Drawer(
             child: ListView(
@@ -208,7 +211,8 @@ class MenuPrincipal extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const CargaProyectoPage()));
+                                builder: (context) =>
+                                    const CargaProyectoPage()));
                       },
                     ),
                     const SizedBox(width: 20),

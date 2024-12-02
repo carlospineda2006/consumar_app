@@ -637,6 +637,8 @@ class _Autoreport2State extends State<Autoreport2> {
       TextEditingController();
   final TextEditingController nLlavesComandoController =
       TextEditingController();
+  final TextEditingController nLlavesTipoTarjetaController =
+      TextEditingController();
   final TextEditingController otrosController = TextEditingController();
 
   final TextEditingController idSupervisorController = TextEditingController();
@@ -709,6 +711,7 @@ class _Autoreport2State extends State<Autoreport2> {
   int nLlavesInteligentes = 0;
   int nLlavesComando = 0;
   int nLlavesPin = 0;
+  int nLlavesTipoTarjeta =0;
 
   AutoreportService autoreportService = AutoreportService();
 
@@ -3666,34 +3669,68 @@ class _Autoreport2State extends State<Autoreport2> {
                                     height: 10,
                                   ),
                                   TextFormField(
-                                      decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(20.0),
-                                          ),
-                                          labelText: 'Llaves Pin',
-                                          labelStyle: TextStyle(
-                                            color: kColorAzul,
-                                            fontSize: 18.0,
-                                          ),
-                                          hintText: 'Cantidad Llaves Pin'),
-                                      onChanged: (value) {
-                                        if (nLlavesPinController
-                                            .text.isNotEmpty) {
-                                          setState(() {
-                                            nLlavesPin = int.parse(
-                                                nLlavesPinController.text);
-                                          });
-                                        } else if (nLlavesPinController
-                                                .text.isEmpty ||
-                                            nLlavesPinController.text == "") {
-                                          setState(() {
-                                            nLlavesPin = 0;
-                                          });
-                                        }
-                                      },
-                                      controller: nLlavesPinController,
-                                      enabled: true),
+                                    decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        labelText: 'Llaves Pin',
+                                        labelStyle: TextStyle(
+                                          color: kColorAzul,
+                                          fontSize: 18.0,
+                                        ),
+                                        hintText: 'Cantidad Llaves Pin'),
+                                    onChanged: (value) {
+                                      if (nLlavesPinController
+                                          .text.isNotEmpty) {
+                                        setState(() {
+                                          nLlavesPin = int.parse(
+                                              nLlavesPinController.text);
+                                        });
+                                      } else if (nLlavesPinController
+                                              .text.isEmpty ||
+                                          nLlavesPinController.text == "") {
+                                        setState(() {
+                                          nLlavesPin = 0;
+                                        });
+                                      }
+                                    },
+                                    controller: nLlavesPinController,
+                                    enabled: true,
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  TextFormField(
+                                    decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                          BorderRadius.circular(20.0),
+                                        ),
+                                        labelText: 'Llaves Tipo Tarjeta',
+                                        labelStyle: TextStyle(
+                                          color: kColorAzul,
+                                          fontSize: 18.0,
+                                        ),
+                                        hintText: 'Cantidad Llaves Tipo Tarjeta'),
+                                    onChanged: (value) {
+                                      if (nLlavesTipoTarjetaController
+                                          .text.isNotEmpty) {
+                                        setState(() {
+                                          nLlavesTipoTarjeta = int.parse(
+                                              nLlavesPinController.text);
+                                        });
+                                      } else if (nLlavesTipoTarjetaController
+                                          .text.isEmpty ||
+                                          nLlavesTipoTarjetaController.text == "") {
+                                        setState(() {
+                                          nLlavesTipoTarjeta = 0;
+                                        });
+                                      }
+                                    },
+                                    controller: nLlavesTipoTarjetaController,
+                                    enabled: true,
+                                  ),
                                 ],
                               ),
                             )),
