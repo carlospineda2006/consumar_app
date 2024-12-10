@@ -420,7 +420,7 @@ class _DistribucionSilosState extends State<DistribucionSilos> {
                                         fontWeight: FontWeight.bold,
                                         color: kColorAzul),
                                     dataRowColor:
-                                        MaterialStateProperty.all(Colors.white),
+                                        WidgetStateProperty.all(Colors.white),
                                     columns: const <DataColumn>[
                                       DataColumn(
                                         label: Text("Nº"),

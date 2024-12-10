@@ -695,7 +695,7 @@ class _Autoreport2EdicionState extends State<Autoreport2Edicion> {
                                         border: Border.all(color: Colors.black),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      dataRowColor: MaterialStateProperty.all(
+                                      dataRowColor: WidgetStateProperty.all(
                                           Colors.white),
                                       columns: const <DataColumn>[
                                         DataColumn(
@@ -965,7 +965,7 @@ class _Autoreport2EdicionState extends State<Autoreport2Edicion> {
                                         border: Border.all(color: Colors.black),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      dataRowColor: MaterialStateProperty.all(
+                                      dataRowColor: WidgetStateProperty.all(
                                           Colors.white),
                                       columns: const <DataColumn>[
                                         DataColumn(
@@ -1103,7 +1103,7 @@ class _Autoreport2EdicionState extends State<Autoreport2Edicion> {
                                         border: Border.all(color: Colors.black),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      dataRowColor: MaterialStateProperty.all(
+                                      dataRowColor: WidgetStateProperty.all(
                                           Colors.white),
                                       columns: const <DataColumn>[
                                         DataColumn(
@@ -1404,7 +1404,7 @@ class _Autoreport2EdicionState extends State<Autoreport2Edicion> {
                                         border: Border.all(color: Colors.black),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      dataRowColor: MaterialStateProperty.all(
+                                      dataRowColor: WidgetStateProperty.all(
                                           Colors.white),
                                       columns: const <DataColumn>[
                                         DataColumn(

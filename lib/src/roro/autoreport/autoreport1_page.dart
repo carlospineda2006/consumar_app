@@ -577,7 +577,7 @@ class _Autoreport1State extends State<Autoreport1> {
                 enabled: true,
                 onChanged: (value) => {
                   setState(() {
-                    _valueFilaDropdown = value as String;
+                    _valueFilaDropdown = value;
                   })
                 },
               ),

@@ -556,7 +556,8 @@ class _LiquidaPrecintadoState extends State<LiquidaPrecintado>
                           ),
                           headingTextStyle: TextStyle(
                               fontWeight: FontWeight.bold, color: kColorAzul),
-                          dataRowColor: MaterialStateProperty.all(Colors.white),
+                          //dataRowColor: MaterialStateProperty.all(Colors.white),
+                          dataRowColor: WidgetStateProperty.all(Colors.white),
                           columns: const <DataColumn>[
                             DataColumn(
                               label: Text("Nº"),

@@ -44,8 +44,6 @@ class RoroCargaRodantePage extends StatefulWidget {
   State<RoroCargaRodantePage> createState() => _RoroCargaRodantePageState();
 }
 
-//String _selectedServiceOrder = 'Seleccione Orden';
-
 class _RoroCargaRodantePageState extends State<RoroCargaRodantePage> {
   final _formKey = GlobalKey<FormState>();
   final _formKey2 = GlobalKey<FormState>();
@@ -164,7 +162,7 @@ class _RoroCargaRodantePageState extends State<RoroCargaRodantePage> {
     //print(        'Cantidad de registros embarque ${vwListVehicleDataByIdServiceOrderEmbarque.length}');
   }
 
-  insertDRApiListToSqlDRList() async {
+  Future<void> insertDRApiListToSqlDRList() async {
     await damageReportConsultaService
         .insertDamageReportData(damageReportConsultaApi);
   }
@@ -188,6 +186,7 @@ class _RoroCargaRodantePageState extends State<RoroCargaRodantePage> {
       vwgetUserDataByCodUser =
           await usuarioService.getUserDataByCodUser(codUser);
       idUsuario = BigInt.parse(vwgetUserDataByCodUser.idUsuario.toString());
+
       nombreUsuarioController.text =
           "${vwgetUserDataByCodUser.nombres!} ${vwgetUserDataByCodUser.apellidos!}";
       nombreUsuario =
@@ -557,7 +556,7 @@ class _RoroCargaRodantePageState extends State<RoroCargaRodantePage> {
   @override
   Widget build(BuildContext context) {
     _fechaController.value =
-        TextEditingValue(text: DateFormat('dd-MM-yyyy').format(DateTime.now()));
+        TextEditingValue(text: DateFormat('dd/MM/yyyy').format(DateTime.now()));
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -611,9 +610,10 @@ class _RoroCargaRodantePageState extends State<RoroCargaRodantePage> {
                               ),
                               hintText: 'Ingrese el numero de ID Job'),
                           onChanged: (value) async {
-                            //getUsuarioPorIdJob();
-                            await getUserDataByCodUser();
-                            validationUserAcceso();
+                            if (value.length >= 6) {
+                              await getUserDataByCodUser();
+                              validationUserAcceso();
+                            }
                           },
                           controller: idUsuarioController,
                           validator: (value) {
@@ -1164,6 +1164,7 @@ class _RoroCargaRodantePageState extends State<RoroCargaRodantePage> {
                           children: [
                             TextButton(
                               onPressed: () {
+                                Navigator.pop(context);
                                 dialogoDescargarDatosDR(context);
                               },
                               child: const Text(
@@ -1250,10 +1251,13 @@ class _RoroCargaRodantePageState extends State<RoroCargaRodantePage> {
                             //DateTime? e = DateTime.now();
 
                             EasyLoading.show(
-                                indicator: const CircularProgressIndicator(),
-                                status: "Sincronizando Vehículos",
-                                maskType: EasyLoadingMaskType.black);
+                              indicator: const CircularProgressIndicator(),
+                              status: "Sincronizando Vehículos",
+                              maskType: EasyLoadingMaskType.black,
+                            );
+
                             await insertDRApiListToSqlDRList();
+
                             EasyLoading.dismiss();
                             ////print(e);
                           },
@@ -1296,15 +1300,17 @@ class _RoroCargaRodantePageState extends State<RoroCargaRodantePage> {
                         children: [
                           TextButton(
                             onPressed: () {
+                              Navigator.pop(context);
                               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => DamageReport(
-                                            jornada: int.parse(
-                                                _valueJornadaDropdown),
-                                            idUsuario: idUsuario,
-                                            idServiceOrder: idServiceOrderRampa,
-                                          )));
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => DamageReport(
+                                    jornada: int.parse(_valueJornadaDropdown),
+                                    idUsuario: idUsuario,
+                                    idServiceOrder: idServiceOrderRampa,
+                                  ),
+                                ),
+                              );
                             },
                             child: const Text(
                               "ACEPTAR",
@@ -1610,5 +1616,3 @@ List<DropdownMenuItem<String>> getJornadaDropDownItems(
   }
   return dropDownItems;
 }
-
-//ADNRES FRANCO ESTUVO AQUI

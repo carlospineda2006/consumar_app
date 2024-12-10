@@ -40,13 +40,11 @@ class _LoginState extends State<LoginPantalla> {
         }
 
         if (context.mounted) {
-          Navigator.pushReplacement(
-            context,
+          Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(
-              builder: (context) => MenuPrincipal(
-                userAuthenticatedModel: userAuthenticatedModel,
-              ),
+              builder: (context) => MenuPrincipal(userAuthenticatedModel: userAuthenticatedModel),
             ),
+                (route) => false, // Remove all previous routes
           );
         }
       } else {

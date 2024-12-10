@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/services.dart';
+import 'package:logging/logging.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
@@ -128,6 +131,7 @@ class AutoreportPdfService {
   String llavesInteligentesText = "no";
   String llavesComandoText = "no";
   String llavesPinText = "no";
+  String llavesTipoTarjetaText = "no";
   String comentario = "";
   String idAutoreportData = "";
   String codAutoreport = "";
@@ -189,6 +193,7 @@ class AutoreportPdfService {
   int nllavesInteligentes = 0;
   int nllavesComando = 0;
   int nllavesPin = 0;
+  int nllavesTipoTarjeta = 0;
 
   AutoreportService autoreportService = AutoreportService();
   VwAutoreportData vwAutoreportDataEdit = VwAutoreportData();
@@ -196,7 +201,8 @@ class AutoreportPdfService {
   getAutoreportDataById(int idAutoreport) async {
     vwAutoreportDataEdit =
         await autoreportService.getAutoreportDataById(idAutoreport);
-
+    log('${vwAutoreportDataEdit.nllavesPin}');
+    Logger('Autoreport').info('${vwAutoreportDataEdit}');
     idAutoreportData = vwAutoreportDataEdit.idAutoreport!.toString();
     nave = vwAutoreportDataEdit.nave!;
     fecha = vwAutoreportDataEdit.fechaHora!;
@@ -263,6 +269,7 @@ class AutoreportPdfService {
     nllavesInteligentes = vwAutoreportDataEdit.nllavesInteligentes!;
     nllavesComando = vwAutoreportDataEdit.nllavesComando!;
     nllavesPin = vwAutoreportDataEdit.nllavesPin!;
+    nllavesTipoTarjeta= vwAutoreportDataEdit.nllavesTipoTarjeta!;
     comentario = vwAutoreportDataEdit.comentario!;
     codAutoreport = vwAutoreportDataEdit.codAutoreport!;
 
@@ -494,6 +501,9 @@ class AutoreportPdfService {
     }
     if (nllavesPin != 0) {
       llavesPinText = "si";
+    }
+    if (nllavesTipoTarjeta != 0) {
+      llavesTipoTarjetaText = "si";
     }
 
     if (presenciaPolvoSuciedad == true) {
@@ -820,6 +830,11 @@ class AutoreportPdfService {
                               child: pw.Text("Llaves Pin",
                                   style: kTextoCuerpoPdfAutoreport(ttf))),
                           pw.SizedBox(height: 2),
+                          pw.Container(
+                              width: 70,
+                              child: pw.Text("Llaves Tipo Tarjeta",
+                                  style: kTextoCuerpoPdfAutoreport(ttf))),
+                          pw.SizedBox(height: 2),
                           pw.Text("Linterna",
                               style: kTextoCuerpoPdfAutoreport(ttf)),
                           pw.SizedBox(height: 2),
@@ -997,6 +1012,9 @@ class AutoreportPdfService {
                           pw.Text(llavesPinText,
                               style: kTextoCuerpoPdfAutoreport(ttf)),
                           pw.SizedBox(height: 2),
+                          pw.Text(llavesTipoTarjetaText,
+                              style: kTextoCuerpoPdfAutoreport(ttf)),
+                          pw.SizedBox(height: 2),
                           pw.Text(linternaText,
                               style: kTextoCuerpoPdfAutoreport(ttf)),
                           pw.SizedBox(height: 3),
@@ -1161,6 +1179,9 @@ class AutoreportPdfService {
                               style: kTextoCuerpoPdfAutoreport(ttf)),
                           pw.SizedBox(height: 2),
                           pw.Text(nllavesPin.toString(),
+                              style: kTextoCuerpoPdfAutoreport(ttf)),
+                          pw.SizedBox(height: 2),
+                          pw.Text(nllavesTipoTarjeta.toString(),
                               style: kTextoCuerpoPdfAutoreport(ttf)),
                           pw.SizedBox(height: 2),
                           pw.Text(cantLinterna.toString(),

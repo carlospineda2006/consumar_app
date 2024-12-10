@@ -515,7 +515,7 @@ class _DistribucionEmbarqueState extends State<DistribucionEmbarque2>
                               borderRadius: BorderRadius.circular(10),
                             ),
                             dataRowColor:
-                                MaterialStateProperty.all(Colors.white),
+                                WidgetStateProperty.all(Colors.white),
                             //  showCheckboxColumn: false,
                             columns: <DataColumn>[
                               DataColumn(

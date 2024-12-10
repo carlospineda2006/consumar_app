@@ -499,7 +499,7 @@ class _RecepcionAlmacenState extends State<RecepcionAlmacen> {
                     return kColorAzul;
                   },
                 ), */
-                  dataRowColor: MaterialStateProperty.all(Colors.white),
+                  dataRowColor: WidgetStateProperty.all(Colors.white),
                   columns: const <DataColumn>[
                     DataColumn(
                       label: Text("Nº"),

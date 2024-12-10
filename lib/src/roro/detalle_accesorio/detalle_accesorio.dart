@@ -665,7 +665,7 @@ class _DetalleAccesorioState extends State<DetalleAccesorio>
                 },
               ), */
                                     dataRowColor:
-                                        MaterialStateProperty.all(Colors.white),
+                                        WidgetStateProperty.all(Colors.white),
                                     columns: const <DataColumn>[
                                       DataColumn(
                                         label: Text("Nº"),
@@ -810,7 +810,7 @@ class _DetalleAccesorioState extends State<DetalleAccesorio>
               return kColorAzul;
             },
           ), */
-      dataRowColor: MaterialStateProperty.all(Colors.white),
+      dataRowColor: WidgetStateProperty.all(Colors.white),
       columns: const <DataColumn>[
         DataColumn(
           label: Text("Nº"),

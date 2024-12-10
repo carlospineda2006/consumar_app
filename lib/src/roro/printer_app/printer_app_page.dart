@@ -257,7 +257,7 @@ class _PrinterAppState extends State<PrinterApp>
                         headingTextStyle: TextStyle(
                             fontWeight: FontWeight.bold, color: kColorAzul),
                         dataRowColor:
-                            MaterialStateProperty.resolveWith(_getDataRowColor),
+                            WidgetStateProperty.resolveWith(_getDataRowColor),
                         columns: const <DataColumn>[
                           DataColumn(
                             label: Text("N°"),
@@ -443,7 +443,7 @@ class _PrinterAppState extends State<PrinterApp>
                           },
                         ), */
                         dataRowColor:
-                            MaterialStateProperty.resolveWith(_getDataRowColor),
+                            WidgetStateProperty.resolveWith(_getDataRowColor),
                         /* dataRowColor: MaterialStateColor.resolveWith(
                       (Set<MaterialState> states) =>
                           states.contains(MaterialState.selected)
@@ -636,12 +636,12 @@ class _PrinterAppState extends State<PrinterApp>
     );
   }
 
-  Color _getDataRowColor(Set<MaterialState> states) {
-    const Set<MaterialState> interactiveStates = <MaterialState>{
-      MaterialState.pressed,
-      MaterialState.hovered,
-      MaterialState.focused,
-      MaterialState.selected
+  Color _getDataRowColor(Set<WidgetState> states) {
+    const Set<WidgetState> interactiveStates = <WidgetState>{
+      WidgetState.pressed,
+      WidgetState.hovered,
+      WidgetState.focused,
+      WidgetState.selected
     };
 
     if (states.any(interactiveStates.contains)) {

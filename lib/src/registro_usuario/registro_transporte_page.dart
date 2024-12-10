@@ -284,7 +284,7 @@ class _RegistroTransportePageState extends State<RegistroTransportePage>
                   return kColorAzul;
                 },
               ), */
-                          dataRowColor: MaterialStateProperty.all(Colors.white),
+                          dataRowColor: WidgetStateProperty.all(Colors.white),
                           //  showCheckboxColumn: false,
                           columns: const <DataColumn>[
                             DataColumn(

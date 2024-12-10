@@ -56,6 +56,7 @@ class SpCreateAutoreportModel {
   int? nLlavesInteligentes;
   int? nLlavesComando;
   int? nLlavesPin;
+  int? nLlavesTipoTarjeta;
   bool? linterna;
   bool? cableCargadorBateria;
   bool? circulina;
@@ -177,6 +178,7 @@ class SpCreateAutoreportModel {
     this.nLlavesInteligentes,
     this.nLlavesComando,
     this.nLlavesPin,
+    this.nLlavesTipoTarjeta,
     this.linterna,
     this.cableCargadorBateria,
     this.circulina,
@@ -300,6 +302,7 @@ class SpCreateAutoreportModel {
         nLlavesInteligentes: json["nLlavesInteligentes"],
         nLlavesComando: json["nLlavesComando"],
         nLlavesPin: json["nLlavesPin"],
+        nLlavesTipoTarjeta: json["nLlavesTipoTarjeta"],
         linterna: json["linterna"],
         cableCargadorBateria: json["cableCargadorBateria"],
         circulina: json["circulina"],
@@ -423,6 +426,7 @@ class SpCreateAutoreportModel {
         "nLlavesInteligentes": nLlavesInteligentes,
         "nLlavesComando": nLlavesComando,
         "nLlavesPin": nLlavesPin,
+        "nLlavesTipoTarjeta": nLlavesTipoTarjeta,
         "linterna": linterna,
         "cableCargadorBateria": cableCargadorBateria,
         "circulina": circulina,

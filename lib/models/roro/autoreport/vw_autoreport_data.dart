@@ -61,6 +61,7 @@ class VwAutoreportData {
   int? nllavesInteligentes;
   int? nllavesComando;
   int? nllavesPin;
+  int? nllavesTipoTarjeta;
   bool? linterna;
   bool? cableCargadorBateria;
   bool? circulina;
@@ -180,6 +181,7 @@ class VwAutoreportData {
     this.nllavesInteligentes,
     this.nllavesComando,
     this.nllavesPin,
+    this.nllavesTipoTarjeta,
     this.linterna,
     this.cableCargadorBateria,
     this.circulina,
@@ -301,6 +303,7 @@ class VwAutoreportData {
         nllavesInteligentes: json["nllavesInteligentes"],
         nllavesComando: json["nllavesComando"],
         nllavesPin: json["nllavesPin"],
+        nllavesTipoTarjeta: json["nllavesTipoTarjeta"],
         linterna: json["linterna"],
         cableCargadorBateria: json["cableCargadorBateria"],
         circulina: json["circulina"],
@@ -415,6 +418,7 @@ class VwAutoreportData {
         "nllavesInteligentes": nllavesInteligentes,
         "nllavesComando": nllavesComando,
         "nllavesPin": nllavesPin,
+        "nllavesTipoTarjeta": nllavesTipoTarjeta,
         "linterna": linterna,
         "cableCargadorBateria": cableCargadorBateria,
         "circulina": circulina,

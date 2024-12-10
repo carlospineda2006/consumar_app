@@ -947,7 +947,7 @@ class _ControlReestibasState extends State<ControlReestibas>
                                           fontWeight: FontWeight.bold,
                                           color: kColorAzul),
                                       dataRowColor:
-                                          MaterialStateProperty.resolveWith(
+                                          WidgetStateProperty.resolveWith(
                                               _getDataRowColor),
                                       columns: const <DataColumn>[
                                         DataColumn(
@@ -1141,7 +1141,7 @@ class _ControlReestibasState extends State<ControlReestibas>
                                           fontWeight: FontWeight.bold,
                                           color: kColorAzul),
                                       dataRowColor:
-                                          MaterialStateProperty.resolveWith(
+                                          WidgetStateProperty.resolveWith(
                                               _getDataRowColor),
                                       columns: const <DataColumn>[
                                         DataColumn(
@@ -1631,7 +1631,7 @@ class _ControlReestibasState extends State<ControlReestibas>
                                             fontWeight: FontWeight.bold,
                                             color: kColorAzul),
                                         dataRowColor:
-                                            MaterialStateProperty.resolveWith(
+                                            WidgetStateProperty.resolveWith(
                                                 _getDataRowColor),
                                         columns: const <DataColumn>[
                                           DataColumn(
@@ -1773,7 +1773,7 @@ class _ControlReestibasState extends State<ControlReestibas>
                     },
                   ), */
                                         dataRowColor:
-                                            MaterialStateProperty.resolveWith(
+                                            WidgetStateProperty.resolveWith(
                                                 _getDataRowColor),
                                         columns: const <DataColumn>[
                                           DataColumn(
@@ -1908,12 +1908,12 @@ class _ControlReestibasState extends State<ControlReestibas>
     );
   }
 
-  Color _getDataRowColor(Set<MaterialState> states) {
-    const Set<MaterialState> interactiveStates = <MaterialState>{
-      MaterialState.pressed,
-      MaterialState.hovered,
-      MaterialState.focused,
-      MaterialState.selected
+  Color _getDataRowColor(Set<WidgetState> states) {
+    const Set<WidgetState> interactiveStates = <WidgetState>{
+      WidgetState.pressed,
+      WidgetState.hovered,
+      WidgetState.focused,
+      WidgetState.selected
     };
 
     if (states.any(interactiveStates.contains)) {

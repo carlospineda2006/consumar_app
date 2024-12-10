@@ -363,7 +363,7 @@ class _LiquidaDescargaTuberiasState extends State<LiquidaDescargaTuberias>
                                       fontWeight: FontWeight.bold,
                                       color: kColorAzul),
                                   dataRowColor:
-                                      MaterialStateProperty.all(Colors.white),
+                                      WidgetStateProperty.all(Colors.white),
                                   columns: const <DataColumn>[
                                     DataColumn(
                                       label: Text("Nº"),
@@ -462,7 +462,7 @@ class _LiquidaDescargaTuberiasState extends State<LiquidaDescargaTuberias>
       ),
       headingTextStyle:
           TextStyle(fontWeight: FontWeight.bold, color: kColorAzul),
-      dataRowColor: MaterialStateProperty.all(Colors.white),
+      dataRowColor: WidgetStateProperty.all(Colors.white),
       columns: const <DataColumn>[
         DataColumn(
           label: Text("Nº"),

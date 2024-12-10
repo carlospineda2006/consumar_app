@@ -288,8 +288,9 @@ class _InspeccionEquiposLiquidaPageState
                           showSearchBox: true,
                           title: Text('Busque el Codigo del Equipo'),
                         ),
+
                         dropdownDecoratorProps: DropDownDecoratorProps(
-                          dropdownSearchDecoration: InputDecoration(
+                          dropdownSearchDecoration:  InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20.0),
                             ),

@@ -510,7 +510,7 @@ class _RegistroUsuarioPageState extends State<RegistroUsuarioPage>
                     },
                   ), */
                             dataRowColor:
-                                MaterialStateProperty.all(Colors.white),
+                                WidgetStateProperty.all(Colors.white),
 
                             //  showCheckboxColumn: false,
 

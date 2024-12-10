@@ -381,7 +381,7 @@ class _ReestibasListState extends State<ReestibasList>
                                         fontWeight: FontWeight.bold,
                                         color: kColorAzul),
                                     dataRowColor:
-                                        MaterialStateProperty.all(Colors.white),
+                                        WidgetStateProperty.all(Colors.white),
                                     columns: const <DataColumn>[
                                       DataColumn(
                                         label: Text("Nº ID"),
@@ -576,7 +576,7 @@ class _ReestibasListState extends State<ReestibasList>
                                       headingTextStyle: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: kColorAzul),
-                                      dataRowColor: MaterialStateProperty.all(
+                                      dataRowColor: WidgetStateProperty.all(
                                           Colors.white),
                                       columns: const <DataColumn>[
                                         DataColumn(

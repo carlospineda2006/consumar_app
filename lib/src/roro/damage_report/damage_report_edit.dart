@@ -1434,7 +1434,7 @@ class _EditDamageReport extends State<EditDamageReport> {
                       headingTextStyle: TextStyle(
                           fontWeight: FontWeight.bold, color: kColorAzul),
 
-                      dataRowColor: MaterialStateProperty.all(Colors.white),
+                      dataRowColor: WidgetStateProperty.all(Colors.white),
 
                       //  showCheckboxColumn: false,
                       columns: const <DataColumn>[

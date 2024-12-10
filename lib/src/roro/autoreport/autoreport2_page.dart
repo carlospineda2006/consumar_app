@@ -340,12 +340,10 @@ class _Autoreport2State extends State<Autoreport2> {
 
       if (image2 == null) return;
 
-      final imageTemporary2 = File(image2.path);
-      ////print('ruta de la imagen:' + image2.path);
+      final imageTemporary2 = File(image2.path);      
 
       setState(() => this.image2 = imageTemporary2);
-    } on PlatformException catch (e) {
-      // //print('Failed to pick image: $e');
+    } on PlatformException catch (e) {      
       e.message;
     }
   }
@@ -463,6 +461,7 @@ class _Autoreport2State extends State<Autoreport2> {
     spAutoreport.nLlavesInteligentes = nLlavesInteligentes;
     spAutoreport.nLlavesComando = nLlavesComando;
     spAutoreport.nLlavesPin = nLlavesPin;
+    spAutoreport.nLlavesTipoTarjeta= nLlavesTipoTarjeta;
     spAutoreport.comentario = comentarioController.text;
     spAutoreport.idServiceOrder = int.parse(widget.idServiceOrder.toString());
     spAutoreport.idUsuarios = int.parse(widget.idUsuario.toString());
@@ -1144,7 +1143,7 @@ class _Autoreport2State extends State<Autoreport2> {
                                           borderRadius:
                                               BorderRadius.circular(10),
                                         ),
-                                        dataRowColor: MaterialStateProperty.all(
+                                        dataRowColor: WidgetStateProperty.all(
                                             Colors.white),
                                         columns: const <DataColumn>[
                                           DataColumn(
@@ -1497,7 +1496,7 @@ class _Autoreport2State extends State<Autoreport2> {
                                           borderRadius:
                                               BorderRadius.circular(10),
                                         ),
-                                        dataRowColor: MaterialStateProperty.all(
+                                        dataRowColor: WidgetStateProperty.all(
                                             Colors.white),
                                         columns: const <DataColumn>[
                                           DataColumn(
@@ -3718,7 +3717,7 @@ class _Autoreport2State extends State<Autoreport2> {
                                           .text.isNotEmpty) {
                                         setState(() {
                                           nLlavesTipoTarjeta = int.parse(
-                                              nLlavesPinController.text);
+                                              nLlavesTipoTarjetaController.text);
                                         });
                                       } else if (nLlavesTipoTarjetaController
                                           .text.isEmpty ||

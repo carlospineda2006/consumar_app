@@ -107,7 +107,7 @@ class _RegistroUsuarioListState extends State<RegistroUsuarioList> {
                   return kColorAzul;
                 },
               ), */
-                          dataRowColor: MaterialStateProperty.all(Colors.white),
+                          dataRowColor: WidgetStateProperty.all(Colors.white),
                           //  showCheckboxColumn: false,
                           columns: const <DataColumn>[
                             DataColumn(

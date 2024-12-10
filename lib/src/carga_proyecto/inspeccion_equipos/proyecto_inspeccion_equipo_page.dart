@@ -244,7 +244,7 @@ class _ProyectoInspeccionEquiposState extends State<ProyectoInspeccionEquipos> {
                 ),
                 headingTextStyle:
                     TextStyle(fontWeight: FontWeight.bold, color: kColorAzul),
-                dataRowColor: MaterialStateProperty.all(Colors.white),
+                dataRowColor: WidgetStateProperty.all(Colors.white),
                 columns: const <DataColumn>[
                   DataColumn(
                     label: Text("COD"),

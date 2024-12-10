@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
@@ -212,8 +213,11 @@ class AutoreportService {
 
   Future<VwAutoreportData> getAutoreportDataById(int idAutoreport) async {
     var url = Uri.parse(urlGetAutoreportDataById + idAutoreport.toString());
+    log('Autoreport Service: ${url}');
 
     final response = await http.get(url);
+
+    log('Autoreport Service: ${response.statusCode }');
 
     if (response.statusCode == 200) {
       return VwAutoreportData.fromJson(jsonDecode(response.body));
