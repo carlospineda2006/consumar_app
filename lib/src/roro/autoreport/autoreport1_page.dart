@@ -137,7 +137,7 @@ class _Autoreport1State extends State<Autoreport1> {
         .getRampaEmbarqueVehicleByChasisAndIdServiceOrder(
             chasisBusquedaController.text, widget.idServiceOrder));
 
-    if (vwRampaEmbarqueVehicleDataModel != []) {
+    if (vwRampaEmbarqueVehicleDataModel != [] && vwRampaEmbarqueVehicleDataModel.length>0) {
       if (vwRampaEmbarqueVehicleDataModel[0].eliminadoDamageReport == 'no') {
         codDr = vwRampaEmbarqueVehicleDataModel[0].codDr!;
       } else {

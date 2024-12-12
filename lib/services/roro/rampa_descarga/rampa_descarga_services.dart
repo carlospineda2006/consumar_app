@@ -27,6 +27,17 @@ class RampaDescargaServices {
     }
   }
 
+Future<List<VwRampaDescargaTop20Model>> getVwRampaDescargaTop20() async {
+    final response = await http.get(urlGetVwRampaDescargaTop20);
+    if (response.statusCode == 200) {
+      // Si el servidor devuelve una repuesta OK, parseamos el JSON
+      return parseVwRampaDescargaTop20(response.body);
+    } else {
+      //Si esta respuesta no fue OK, lanza un error.
+      throw Exception('No se pudo obtener las naves');
+    }
+  }
+
   Future<SpRampaDescargaModel> createRampaDescarga(
       SpRampaDescargaModel value) async {
     Map data = {

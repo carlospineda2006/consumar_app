@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:consumar_app/utils/qr_scanner/barcode_scanner_window.dart';
@@ -2163,7 +2162,7 @@ class _DamageReportState extends State<DamageReport>
                                     setState(() {
                                       //log('Desplegable Daño: $value');
                                       if (value == null) {
-                                        value = '';
+                                        value = 'Seleccione Daño';
                                       }
                                       _desplegableDano = value!;
 
@@ -2269,7 +2268,10 @@ class _DamageReportState extends State<DamageReport>
                                   }).toList(),
                                   onChanged: (value) => {
                                     setState(() {
-                                      _desplegableParte = value as String;
+                                      if (value == null) {
+                                        value = 'Seleccione Parte';
+                                      }
+                                      _desplegableParte = '';
                                     }),
                                     if (_desplegableParte == "Others")
                                       {

@@ -25,10 +25,11 @@ class _DamageReportPDFState extends State<DamageReportPDF> {
   @override
   Widget build(BuildContext context) {
     return PdfPreview(
-      build: (format) {
-        return damageReportPdf.createPdf(widget.idDamageReport);
+      build: (format) async {
+        return await damageReportPdf.createPdf(widget.idDamageReport);
       },
       useActions: false,
     );
   }
+  
 }

@@ -43,8 +43,6 @@ class DBdamageReport {
       });
     }
     await batch.commit();
-    // //print("ultimo id registrado Damage Report $result");
-    // //print("cantidad de lista de damage Type ${damageItem.length}");
     return result;
   }
 

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:consumar_app/src/roro/cerrar_proceso/cerrar_proceso_service_order.dart';
 import 'package:consumar_app/src/roro/printer_app/printer_app_listado_page.dart';
+import 'package:consumar_app/src/roro/rampa_descarga/rampa_descarga_listado_page.dart';
 import 'package:consumar_app/utils/qr_scanner/barcode_scanner_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -283,6 +284,27 @@ class _RoroCargaRodantePageState extends State<RoroCargaRodantePage> {
                 builder: (context) => ControlReestibas(
                       jornada: int.parse(_valueJornadaDropdown),
                       idUsuario: idUsuario,
+                      idServiceOrder: idServiceOrderRampa,
+                    )));
+      } else {
+        CustomSnackBar.errorSnackBar(
+            context, 'Por favor, ingrese orden de Servicio y Jornada');
+      }
+    } else {
+      CustomSnackBar.errorSnackBar(
+          context, 'Por favor, ingrese Codigo de Trabajador');
+    }
+  }
+
+  validarRampaDescargaListado() {
+    if (_formKey.currentState!.validate()) {
+      if (_formKey2.currentState!.validate()) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => RampaDescargaListadoPage(
+                      //jornada: int.parse(_valueJornadaDropdown),
+                      //idUsuario: idUsuario,
                       idServiceOrder: idServiceOrderRampa,
                     )));
       } else {
@@ -955,11 +977,11 @@ class _RoroCargaRodantePageState extends State<RoroCargaRodantePage> {
                                   }),
                               const SizedBox(width: 20),
                               BotonMenu(
-                                  title: 'Rampa de Descarga',
-                                  icon: Icons.download,
+                                  title: 'Distribución Embarque',
+                                  icon: Icons.horizontal_distribute,
                                   onTap: () {
-                                    if (ignoreRampaDescarga == false) {
-                                      validationRampaDescarga();
+                                    if (ignoreDistribucionEmbarque == false) {
+                                      validationDistribucionEmbarque();
                                     } else {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(const SnackBar(
@@ -976,11 +998,11 @@ class _RoroCargaRodantePageState extends State<RoroCargaRodantePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               BotonMenu(
-                                  title: 'Distribución Embarque',
-                                  icon: Icons.horizontal_distribute,
+                                  title: 'Rampa de Descarga',
+                                  icon: Icons.download,
                                   onTap: () {
-                                    if (ignoreDistribucionEmbarque == false) {
-                                      validationDistribucionEmbarque();
+                                    if (ignoreRampaDescarga == false) {
+                                      validationRampaDescarga();
                                     } else {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(const SnackBar(
@@ -992,11 +1014,50 @@ class _RoroCargaRodantePageState extends State<RoroCargaRodantePage> {
                                   }),
                               const SizedBox(width: 20),
                               BotonMenu(
+                                  title: 'Rampa de Descarga Listado',
+                                  icon: Icons.list,
+                                  onTap: () {
+                                    if (ignoreRampaEmbarque == false) {
+                                      //validationRampaEmbarque();
+                                      ///TODO: Implementar listado
+                                      validarRampaDescargaListado();
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(const SnackBar(
+                                        content: Text(
+                                            "No cuenta con autorizacion para ingresar a este modulo"),
+                                        backgroundColor: Colors.redAccent,
+                                      ));
+                                    }
+                                  }),
+                            ],
+                          ),
+                          const SizedBox(height: 20),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              BotonMenu(
                                   title: 'Rampa de Embarque',
                                   icon: Icons.ramp_left,
                                   onTap: () {
                                     if (ignoreRampaEmbarque == false) {
                                       validationRampaEmbarque();
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(const SnackBar(
+                                        content: Text(
+                                            "No cuenta con autorizacion para ingresar a este modulo"),
+                                        backgroundColor: Colors.redAccent,
+                                      ));
+                                    }
+                                  }),
+                              const SizedBox(width: 20),
+                              BotonMenu(
+                                  title: 'Rampa de Embarque Listado',
+                                  icon: Icons.list,
+                                  onTap: () {
+                                    if (ignoreRampaDescarga == false) {
+                                      //validationRampaDescarga();
                                     } else {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(const SnackBar(
