@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:consumar_app/src/roro/cerrar_proceso/cerrar_proceso_service_order.dart';
 import 'package:consumar_app/src/roro/printer_app/printer_app_listado_page.dart';
 import 'package:consumar_app/src/roro/rampa_descarga/rampa_descarga_listado_page.dart';
+import 'package:consumar_app/src/roro/rampa_embarque/rampa_embarque_listado_page.dart';
 import 'package:consumar_app/utils/qr_scanner/barcode_scanner_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -303,6 +304,27 @@ class _RoroCargaRodantePageState extends State<RoroCargaRodantePage> {
             context,
             MaterialPageRoute(
                 builder: (context) => RampaDescargaListadoPage(
+                      //jornada: int.parse(_valueJornadaDropdown),
+                      //idUsuario: idUsuario,
+                      idServiceOrder: idServiceOrderRampa,
+                    )));
+      } else {
+        CustomSnackBar.errorSnackBar(
+            context, 'Por favor, ingrese orden de Servicio y Jornada');
+      }
+    } else {
+      CustomSnackBar.errorSnackBar(
+          context, 'Por favor, ingrese Codigo de Trabajador');
+    }
+  }
+
+  validarRampaEmbarqueListado() {
+    if (_formKey.currentState!.validate()) {
+      if (_formKey2.currentState!.validate()) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => RampaEmbarqueListadoPage(
                       //jornada: int.parse(_valueJornadaDropdown),
                       //idUsuario: idUsuario,
                       idServiceOrder: idServiceOrderRampa,
@@ -1018,8 +1040,6 @@ class _RoroCargaRodantePageState extends State<RoroCargaRodantePage> {
                                   icon: Icons.list,
                                   onTap: () {
                                     if (ignoreRampaEmbarque == false) {
-                                      //validationRampaEmbarque();
-                                      ///TODO: Implementar listado
                                       validarRampaDescargaListado();
                                     } else {
                                       ScaffoldMessenger.of(context)
@@ -1057,7 +1077,7 @@ class _RoroCargaRodantePageState extends State<RoroCargaRodantePage> {
                                   icon: Icons.list,
                                   onTap: () {
                                     if (ignoreRampaDescarga == false) {
-                                      //validationRampaDescarga();
+                                      validarRampaEmbarqueListado();
                                     } else {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(const SnackBar(
