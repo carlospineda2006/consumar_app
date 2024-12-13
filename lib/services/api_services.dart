@@ -241,6 +241,9 @@ String urlDeleteLogicRampaDescarga =
 
 final urlGetVwRampaDescargaTop20 =
     Uri.parse("${urlApiBase}RampaDescarga/getRampaDescargaTop20");
+
+String urlGetVwRampaDescargaListadoPorServiceOrder =
+    "${urlApiBase}RampaDescarga/getRampaDescargaListadoPorServiceOrder";
 /*------------------------------------*/
 
 /*----------------Rampa Embarque----------------- */

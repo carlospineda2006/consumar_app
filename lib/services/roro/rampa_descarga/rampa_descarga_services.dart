@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
+import '../../../models/roro/rampa_descarga/sp_rampa_descarga_listado_model.dart';
 import '../../../models/roro/rampa_descarga/vw_rampa_descarga_top_20_model.dart';
 import '../../../models/roro/rampa_descarga/sp_rampa_descarga_model.dart';
 import '../../../utils/roro/rampa_descaga_list_models.dart';
@@ -27,11 +29,15 @@ class RampaDescargaServices {
     }
   }
 
-Future<List<VwRampaDescargaTop20Model>> getVwRampaDescargaTop20() async {
-    final response = await http.get(urlGetVwRampaDescargaTop20);
+  Future<List<SpRampaDescargaListadoModel>>
+      getVwRampaDescargaListadoPorServiceOrder(BigInt serviceOrder) async {
+    final response = await http.get(Uri.parse(
+        '${urlGetVwRampaDescargaListadoPorServiceOrder}?serviceOrder=${serviceOrder}'));
     if (response.statusCode == 200) {
       // Si el servidor devuelve una repuesta OK, parseamos el JSON
-      return parseVwRampaDescargaTop20(response.body);
+      var result = spRampaDescargaListadoModelFromJson(response.body);
+      log('Rampa Descarga Listado: ${result}');
+      return result;
     } else {
       //Si esta respuesta no fue OK, lanza un error.
       throw Exception('No se pudo obtener las naves');
