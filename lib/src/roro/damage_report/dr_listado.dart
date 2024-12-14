@@ -882,9 +882,18 @@ class DrListadoState extends State<DrListado> {
                                           color: Colors.green,
                                         )
                                       : e.aprobadoCoordinador == "desaprobado"
-                                          ? const Icon(
-                                              Icons.close,
-                                              color: Colors.red,
+                                          ? Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                const Icon(
+                                                  Icons.close,
+                                                  color: Colors.red,
+                                                ),
+                                                Text('Motivo: ' +
+                                                    e.motivoRechazoCoordinador!),
+                                              ],
                                             )
                                           : const Text(
                                               "pendiente",
@@ -897,9 +906,18 @@ class DrListadoState extends State<DrListado> {
                                           color: Colors.green,
                                         )
                                       : e.aprobadoApmtc == "desaprobado"
-                                          ? const Icon(
-                                              Icons.close,
-                                              color: Colors.red,
+                                          ? Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                const Icon(
+                                                  Icons.close,
+                                                  color: Colors.red,
+                                                ),
+                                                Text('Motivo: ' +
+                                                    e.motivoRechazoSupervisor!),
+                                              ],
                                             )
                                           : const Text(
                                               "pendiente",
@@ -914,9 +932,18 @@ class DrListadoState extends State<DrListado> {
                                         )
                                       : e.aprobadoResponsableNave ==
                                               "desaprobado"
-                                          ? const Icon(
-                                              Icons.close,
-                                              color: Colors.red,
+                                          ? Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                const Icon(
+                                                  Icons.close,
+                                                  color: Colors.red,
+                                                ),
+                                                Text('Motivo: ' +
+                                                    e.motivoRechazoResponsableNave!),
+                                              ],
                                             )
                                           : const Text(
                                               "pendiente",
@@ -1129,9 +1156,16 @@ class DrListadoState extends State<DrListado> {
                                             )
                                           : allDR[index].aprobadoCoordinador ==
                                                   "desaprobado"
-                                              ? const Icon(
-                                                  Icons.close,
-                                                  color: Colors.red,
+                                              ? Column(
+                                                  children: [
+                                                    const Icon(
+                                                      Icons.close,
+                                                      color: Colors.red,
+                                                    ),
+                                                    Text('Motivo: ' +
+                                                        allDR[index]
+                                                            .motivoRechazoCoordinador!),
+                                                  ],
                                                 )
                                               : const Text(
                                                   "pendiente",
@@ -1155,9 +1189,16 @@ class DrListadoState extends State<DrListado> {
                                             )
                                           : allDR[index].aprobadoApmtc ==
                                                   "desaprobado"
-                                              ? const Icon(
-                                                  Icons.close,
-                                                  color: Colors.red,
+                                              ? Column(
+                                                  children: [
+                                                    const Icon(
+                                                      Icons.close,
+                                                      color: Colors.red,
+                                                    ),
+                                                    Text('Motivo: ' +
+                                                        allDR[index]
+                                                            .motivoRechazoSupervisor!),
+                                                  ],
                                                 )
                                               : const Text(
                                                   "pendiente",
@@ -1183,9 +1224,16 @@ class DrListadoState extends State<DrListado> {
                                           : allDR[index]
                                                       .aprobadoResponsableNave ==
                                                   "desaprobado"
-                                              ? const Icon(
-                                                  Icons.close,
-                                                  color: Colors.red,
+                                              ? Column(
+                                                  children: [
+                                                    const Icon(
+                                                      Icons.close,
+                                                      color: Colors.red,
+                                                    ),
+                                                    Text('Motivo: ' +
+                                                        allDR[index]
+                                                            .motivoRechazoResponsableNave!),
+                                                  ],
                                                 )
                                               : const Text(
                                                   "pendiente",
