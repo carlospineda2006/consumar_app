@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 
 class RampaDescargaListadoController extends GetxController {
   RampaDescargaServices rampaDescargaServices = RampaDescargaServices();
-  late BigInt idServiceOrder;
+  //late BigInt idServiceOrder;
+  RxBool isLoading = false.obs;
 
   RxList<SpRampaDescargaListadoModel> listadoRampaDescarga =
       <SpRampaDescargaListadoModel>[].obs;
@@ -16,10 +17,12 @@ class RampaDescargaListadoController extends GetxController {
   }
 
   Future<void> ListarRampaDescarga({required BigInt serviceOrder}) async {
+    isLoading.value = true;
     try {
       var response = await rampaDescargaServices
           .getVwRampaDescargaListadoPorServiceOrder(serviceOrder);
       listadoRampaDescarga.value = response;
+      isLoading.value = false;
     } catch (e) {}
   }
 }

@@ -272,6 +272,9 @@ String urlGetVehicleCountByIdServiceOrder =
 
 String urlGetDataRampaEmbarqueByServiceOrder =
     "${urlApiBase}RampaEmbarque/getVwCountDataRampaEmbarqueByServiceOrder/";
+
+String urlGetVwRampaEmbarqueListadoPorServiceOrder =
+    "${urlApiBase}RampaEmbarque/getRampaEmbarqueListadoPorServiceOrder";
 /*------------------------------------*/
 
 /*-------Distribucion Embarque---------*/

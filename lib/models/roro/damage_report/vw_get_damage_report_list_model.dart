@@ -28,6 +28,9 @@ class VwGetDamageReportListModel {
     this.aprobadoResponsableNave,
     this.idServiceOrder,
     this.idDamageReportList,
+    this.motivoRechazoCoordinador,
+    this.motivoRechazoSupervisor,
+    this.motivoRechazoResponsableNave,
   });
 
   int? idVista;
@@ -43,6 +46,9 @@ class VwGetDamageReportListModel {
   String? aprobadoResponsableNave;
   int? idServiceOrder;
   int? idDamageReportList;
+  String? motivoRechazoCoordinador;
+  String? motivoRechazoSupervisor;
+  String? motivoRechazoResponsableNave;
 
   factory VwGetDamageReportListModel.fromJson(Map<String, dynamic> json) =>
       VwGetDamageReportListModel(
@@ -59,6 +65,9 @@ class VwGetDamageReportListModel {
         aprobadoResponsableNave: json["aprobadoResponsableNave"],
         idServiceOrder: json["idServiceOrder"],
         idDamageReportList: json["idDamageReportList"],
+        motivoRechazoCoordinador: json["motivoRechazoCoordinador"],
+        motivoRechazoSupervisor: json["motivoRechazoCoordinador"],
+        motivoRechazoResponsableNave: json["motivoRechazoCoordinador"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -75,5 +84,8 @@ class VwGetDamageReportListModel {
         "aprobadoResponsableNave": aprobadoResponsableNave,
         "idServiceOrder": idServiceOrder,
         "idDamageReportList": idDamageReportList,
+        "motivoRechazoCoordinador": motivoRechazoCoordinador,
+        "motivoRechazoSupervisor": motivoRechazoSupervisor,
+        "motivoRechazoResponsableNave": motivoRechazoResponsableNave,
       };
 }

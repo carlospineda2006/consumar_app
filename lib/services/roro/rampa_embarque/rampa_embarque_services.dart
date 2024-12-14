@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
+import '../../../models/roro/rampa_descarga/sp_rampa_descarga_listado_model.dart';
 import '../../../models/roro/rampa_embarque/sp_create_rampa_embarque_model.dart';
 import '../../../models/roro/rampa_embarque/vw_count_data_rampa_embarque_by_service_order.dart';
 import '../../../models/roro/rampa_embarque/vw_nave_origen_model.dart';
@@ -194,6 +196,21 @@ class RampaEmbarqueService {
     } else {
       print(response.statusCode);
       throw Exception('Failed to post data');
+    }
+  }
+
+  Future<List<SpRampaDescargaListadoModel>>
+      getVwRampaEmbarqueListadoPorServiceOrder(BigInt serviceOrder) async {
+    final response = await http.get(Uri.parse(
+        '${urlGetVwRampaEmbarqueListadoPorServiceOrder}?serviceOrder=${serviceOrder}'));
+    if (response.statusCode == 200) {
+      // Si el servidor devuelve una repuesta OK, parseamos el JSON
+      var result = spRampaDescargaListadoModelFromJson(response.body);
+      log('Rampa Descarga Listado: ${result}');
+      return result;
+    } else {
+      //Si esta respuesta no fue OK, lanza un error.
+      throw Exception('No se pudo obtener la rampa de embarque');
     }
   }
 }
